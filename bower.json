@@ -1,0 +1,19 @@
+{
+	"name": "Canvas Game",
+	"version": "0.0.0",
+	"homepage": "N/A",
+	"authors": [
+		"Jim Barnes"
+	],
+	"license": "MIT",
+	"private": true,
+	"ignore": [
+		"**.*",
+		"node_modules",
+		"res/bower_components"
+	],
+	"dependencies": {
+		"bootstrap-sass-official": "v3.3.5",
+		"jquery": "v2.0.3"
+	}
+}
