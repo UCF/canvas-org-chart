@@ -46,6 +46,7 @@ gulp.task('js', function() {
 			var minified = [
 				config.bowerDir + '/jquery/dist/jquery.js',
 				config.bowerDir + '/bootstrap-sass-official/assets/javascripts/bootstrap.js',
+				config.jsPath + '/canvas-org-chart.js',
 				config.jsPath + '/script.js'
 			]
 			

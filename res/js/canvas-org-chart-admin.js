@@ -16,9 +16,9 @@ function CanvasOrgChartAdmin(canvas_id, json) {
 	}
 }
 
-CanvasOrgChart.prototype.handleNoCanvas = function() {
+CanvasOrgChartAdmin.prototype.handleNoCanvas = function() {
 	// ToDo: Come up with error handling for if canvas is not supported.
 	return {
 		message: "Canvas is not supported by this browser."
-	}
-}
+	};
+};
