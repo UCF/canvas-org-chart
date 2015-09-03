@@ -1,52 +1,19 @@
 {
-	"nodes": [
-		{
-			"id": 1,
-			"title": "Grant Heston",
-			"content": "Grant Heston",
-			"href": "https://www.google.com",
-			"pos": {
-				"x": 50,
-				"y": 1
-			},
-			"image": null,
-			"parent": null,
-			"background-image": null,
-			"background-color": null,
-			"foreground-color": null,
-			"border-color": null,
-			"border-width": null,
-			"border-radius": null,
-			"padding": null,
-			"box-shadow": null
-		},
-		{
-			"id": 2,
-			"title": "Wendy Satubbi",
-			"content": "Wendy Sarubbi",
-			"href": "https://www.google.com",
-			"pos": {
-				"x": 5,
-				"y": 5
-			},
-			"image": null,
-			"parent": null,
-			"background-image": null,
-			"background-color": null,
-			"foreground-color": null,
-			"border-color": null,
-			"border-width": null,
-			"border-radius": null,
-			"padding": null,
-			"box-shadow": null
-		}
-	],
-	"lines": [
-		{
-			"id": 1,
-			"from_id": 1,
-			"to_id": 2,
-			"type": "solid"
-		}
-	]
+	"backgroundColor": "rgba(255, 255, 255, 1)",
+	"fixedWidth": 1200,
+	"fixedHeight": 800,
+	"nodeTitleFontFamily": "Arial",
+	"nodeTitleFontSize": 24,
+	"nodeTitleFontColor": "rgba(255, 255, 255, 1)",
+	"nodeContentFontFamily": "Arial",
+	"nodeContentFontSize": 18,
+	"nodeContentFontColor": "rgba(255, 255, 255, 1)",
+	"nodeBackgrounColor": "rgba(30, 30, 30, 1)",
+	"nodeWidth": 3,
+	"nodeHeight": 2,
+	"nodeBorderWidth": 1,
+	"nodeBorderColor": "rgba(50, 50, 50, 1)",
+	"nodeBorderRadius": 3,
+	"lineWidth": 1,
+	"lineColor": "rgba(0, 0, 0, 1)"
 }
