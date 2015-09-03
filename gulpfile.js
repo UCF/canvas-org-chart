@@ -47,6 +47,8 @@ gulp.task('js', function() {
 				config.bowerDir + '/jquery/dist/jquery.js',
 				config.bowerDir + '/bootstrap-sass-official/assets/javascripts/bootstrap.js',
 				config.jsPath + '/canvas-org-chart.js',
+				config.jsPath + '/chart-node.js',
+				config.jsPath + '/chart-line.js',
 				config.jsPath + '/script.js'
 			]
 			

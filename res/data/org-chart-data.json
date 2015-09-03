@@ -1,11 +1,10 @@
 {
 	"nodes": [
 		{
-			"id": 1,
 			"title": "Grant Heston",
 			"content": "Grant Heston",
 			"href": "https://www.google.com",
-			"pos": {
+			"coords": {
 				"x": 50,
 				"y": 1
 			},
@@ -21,11 +20,10 @@
 			"box-shadow": null
 		},
 		{
-			"id": 2,
 			"title": "Wendy Satubbi",
 			"content": "Wendy Sarubbi",
 			"href": "https://www.google.com",
-			"pos": {
+			"coords": {
 				"x": 5,
 				"y": 5
 			},
