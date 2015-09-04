@@ -28,6 +28,35 @@
 			"contentFontFamily": "Arial",
 			"contentFontSize": 12,
 			"contentFontColor": "#000"
+		},
+		{
+			"title": "Jim Barnes",
+			"content": "Web Applications Developer",
+			"href": "https://www.google.com",
+			"coords": {
+				"x": 2,
+				"y": 1
+			},
+			"dimensions": {
+				"width": 2,
+				"height": 3
+			},
+			"image": null,
+			"parent": null,
+			"backgroundImage": null,
+			"backgroundColor": "#efefef",
+			"foregroundColor": "#000",
+			"borderColor": "#acacac",
+			"borderWidth": 1,
+			"borderRadius": 5,
+			"padding":5,
+			"boxShadow": null,
+			"titleFontFamily": "Arial",
+			"titleFontSize": 24,
+			"titleFontColor": "#000",
+			"contentFontFamily": "Arial",
+			"contentFontSize": 12,
+			"contentFontColor": "#000"
 		}
 	],
 	"lines": [

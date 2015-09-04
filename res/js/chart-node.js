@@ -40,14 +40,17 @@ ChartNode.prototype.draw = function(chart) {
 		ctx.lineTo(topLeft.x, topLeft.y + this.borderRadius);
 		ctx.quadraticCurveTo(topLeft.x, topLeft.y, topLeft.x + this.borderRadius, topLeft.y);
 		ctx.strokeColor = this.borderColor;
+		ctx.closePath();
 		ctx.stroke();
+		// Save context before clip
+		ctx.save();
 		ctx.clip();
 	}
 	
 	// Draw background box
 	ctx.fillStyle = this.backgroundColor;
 	ctx.fillRect(topLeft.x, topLeft.y, width, height);
-	
+
 	// Draw title
 	ctx.font = this.titleFontSize + 'px ' + this.titleFontFamily;
 	ctx.textAlign = 'center';
@@ -72,8 +75,9 @@ ChartNode.prototype.draw = function(chart) {
 			this.lastDrawTextBottom = this.lastDrawTextBottom + 5 + this.contentFontSize;
 		}
 	}
+	ctx.restore();
 };
 
 ChartNode.prototype.update = function() {
-	
+	//console.log(this.title);
 };
