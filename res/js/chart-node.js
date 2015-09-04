@@ -15,12 +15,80 @@ ChartNode.prototype.draw = function(chart) {
 	var guy = chart.gridUnit.y;
 	// Get dimensions
 	var width = this.dimensions.width * gux;
-	var height = this.dimensions.height * guy;
 	
 	// Define draw points
 	var top = this.coords.y * guy;
 	var center = this.coords.x * gux;
 	var left = center - width / 2;
+	
+	var height = 0;
+	
+	// Set height variables up here so we know how tall
+	// to make the background.
+	var imgLeft = left + this.padding,
+			imgTop = top + this.padding,
+			imgWidth = width - (this.padding * 2),
+			imgHeight = imgWidth,
+			imgCenter = {
+				x: imgLeft + imgWidth / 2,
+				y: imgTop + imgHeight / 2	
+			};
+			
+	if (this.image.src) {
+		// We'll be using sqaure images for circles.
+		height += imgHeight + 5;
+	}
+	
+	// Draw prepare title
+	ctx.font = this.titleFontSize + 'px ' + this.titleFontFamily;
+	ctx.textAlign = 'center';
+	ctx.textBaseline = 'top';
+	ctx.fillStyle = this.titleFontColor;
+	
+	// Transform string to fit within the bounding box
+	var titleArray = [];
+	var titleSplit = this.title.split(' ');
+	var currentTitleString = '';
+	for (var t in titleSplit) {
+		if (titleArray.length > 0) {
+			currentTitleString = titleArray[titleArray.length - 1];
+			if (ctx.measureText(titleSplit[t]).width + ctx.measureText(currentTitleString).width + (this.padding * 2) < width) {
+				titleArray[titleArray.length - 1] = currentTitleString + ' ' + titleSplit[t];
+			} else {
+				titleArray.push(titleSplit[t]);
+			}
+		} else {
+			titleArray.push(titleSplit[t]);
+		}
+	}
+	
+	height += titleArray.length * this.titleFontSize + (titleArray.length * 3) + 5;
+	
+	// Prepare content
+	ctx.font = this.contentFontSize + 'px ' + this.contentFontFamily;
+	ctx.textAlign = 'center';
+	ctx.textBaseline = 'top';
+	ctx.fillStyle = this.contentFontColor;
+	
+	// Transform string to fit within the bounding box
+	var contentArray = [];
+	var contentSplit = this.content.split(' ');
+	var currentContentString = '';
+	for (var c in contentSplit) {
+		if (contentArray.length > 0) {
+			currentContentString = contentArray[contentArray.length - 1];
+			if (ctx.measureText(contentSplit[c]).width + ctx.measureText(currentContentString).width + (this.padding * 2) < width) {
+				contentArray[contentArray.length - 1] = currentContentString + ' ' + contentSplit[c];
+			} else {
+				contentArray.push(contentSplit[c]);
+			}
+		} else {
+			contentArray.push(contentSplit[c]);
+		}
+	}
+	
+	height += contentArray.length * this.contentFontSize + (titleArray.length * 5) + 5;
+	height += this.padding * 2;
 	
 	var topLeft = { x: left, y: top };
 	var topRight = { x: left + width, y: top };
@@ -47,82 +115,64 @@ ChartNode.prototype.draw = function(chart) {
 		
 		ctx.fillStyle = this.backgroundColor;
 		ctx.fillRect(left, top, width, height);
+		ctx.restore();
 	} else {
 		// No border. Draw the rect normally. 
 		ctx.fillStyle = this.backgroundColor;
 		ctx.fillRect(top, left, width, height);
 	}
-
-	// Draw title
-	ctx.font = this.titleFontSize + 'px ' + this.titleFontFamily;
-	ctx.textAlign = 'center';
-	ctx.textBaseline = 'top';
-	ctx.fillStyle = this.titleFontColor;
-	
-	// Transform string to fit within the bounding box
-	var titleArray = [];
-	var titleSplit = this.title.split(' ');
-	var currentTitleString = '';
-	for (var t in titleSplit) {
-		if (titleArray.length > 0) {
-			currentTitleString = titleArray[titleArray.length - 1];
-			if (ctx.measureText(titleSplit[t]).width + ctx.measureText(currentTitleString).width + (this.padding * 2) < width) {
-				titleArray[titleArray.length - 1] = currentTitleString + ' ' + titleSplit[t];
-			} else {
-				titleArray.push(titleSplit[t]);
-			}
-		} else {
-			titleArray.push(titleSplit[t]);
-		}
-	}
-	
-	var lastDrawTextBottom = top;
-	
-	// Draw Title
-	for (var titlePart in titleArray) {
-		if (titlePart === '0') {
-			ctx.fillText(titleArray[titlePart], center, top + this.padding);
-			lastDrawTextBottom += this.padding + this.titleFontSize;
-		} else {
-			ctx.fillText(titleArray[titlePart], center, lastDrawTextBottom + 3);
-			lastDrawTextBottom += this.titleFontSize + 3;
-		}
-	}
-	
-	// Draw content
-	ctx.font = this.contentFontSize + 'px ' + this.contentFontFamily;
-	ctx.textAlign = 'center';
-	ctx.textBaseline = 'top';
-	ctx.fillStyle = this.contentFontColor;
-	
-	// Transform string to fit within the bounding box
-	var contentArray = [];
-	var contentSplit = this.content.split(' ');
-	var currentContentString = '';
-	for (var c in contentSplit) {
-		if (contentArray.length > 0) {
-			currentContentString = contentArray[contentArray.length - 1];
-			if (ctx.measureText(contentSplit[c]).width + ctx.measureText(currentContentString).width + (this.padding * 2) < width) {
-				contentArray[contentArray.length - 1] = currentContentString + ' ' + contentSplit[c];
-			} else {
-				contentArray.push(contentSplit[c]);
-			}
-		} else {
-			contentArray.push(contentSplit[c]);
-		}
-	}
-	
-	for (var contentPart in contentArray) {
-		if (contentPart === '0') {
-			ctx.fillText(contentArray[contentPart], center, lastDrawTextBottom + 5);
-			lastDrawTextBottom += this.contentFontSize + 5;
-		} else {
-			ctx.fillText(contentArray[contentPart], center, lastDrawTextBottom + 3);
-			lastDrawTextBottom += this.contentFontSize + 3;
-		}
-	}
 	
 	ctx.restore();
+	
+	var lastDrawnElementBottom = top;
+	
+	// Draw Image
+	if (this.image.src) {
+		var img = new Image();
+		
+		// Set the img src
+		img.src = this.image.src;
+			
+		if (this.image.style === 'circle') {
+			ctx.save();
+			ctx.beginPath();
+			ctx.arc(imgCenter.x, imgCenter.y, imgHeight/2, 0, 2 * Math.PI, false);
+								 
+			ctx.strokeStyle = "#acacac";
+			ctx.stroke();
+			ctx.clip();
+			ctx.drawImage(img, imgLeft, imgTop, imgWidth, imgHeight);
+			ctx.restore();
+		} else {
+			ctx.drawImage(img, imgLeft, imgTop);
+		}
+		
+		lastDrawnElementBottom = imgTop + imgHeight;
+	}
+	
+	// Draw Title
+	ctx.font = this.titleFontSize + 'px ' + this.titleFontFamily;
+	for (var titlePart in titleArray) {
+		if (titlePart === '0') {
+			ctx.fillText(titleArray[titlePart], center, lastDrawnElementBottom + 5);
+			lastDrawnElementBottom += this.padding + this.titleFontSize;
+		} else {
+			ctx.fillText(titleArray[titlePart], center, lastDrawnElementBottom + 3);
+			lastDrawnElementBottom += this.titleFontSize + 3;
+		}
+	}
+	
+	// Draw Content
+	ctx.font = this.contentFontSize + 'px ' + this.contentFontFamily;
+	for (var contentPart in contentArray) {
+		if (contentPart === '0') {
+			ctx.fillText(contentArray[contentPart], center, lastDrawnElementBottom + 5);
+			lastDrawnElementBottom += this.contentFontSize + 5;
+		} else {
+			ctx.fillText(contentArray[contentPart], center, lastDrawnElementBottom + 3);
+			lastDrawnElementBottom += this.contentFontSize + 3;
+		}
+	}
 };
 
 ChartNode.prototype.update = function() {

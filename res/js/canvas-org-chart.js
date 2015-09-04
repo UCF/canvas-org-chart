@@ -93,7 +93,7 @@ CanvasOrgChart.prototype.play = function() {
 			var line = this.lines[l];
 			line.update();
 			line.draw(this);
-		}	
+		}
 	}
 };
 

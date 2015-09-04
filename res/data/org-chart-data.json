@@ -12,7 +12,10 @@
 				"width": 2,
 				"height": 3
 			},
-			"image": null,
+			"image": {
+				"src": "res/img/heston.jpg",
+				"style": "circle"
+			},
 			"parent": null,
 			"backgroundImage": null,
 			"backgroundColor": "#efefef",
@@ -41,7 +44,10 @@
 				"width": 2,
 				"height": 3
 			},
-			"image": null,
+			"image": {
+				"src": null,
+				"style": "circle"
+			},
 			"parent": null,
 			"backgroundImage": null,
 			"backgroundColor": "#efefef",
