@@ -29,6 +29,7 @@ ChartNode.prototype.draw = function(chart) {
 	
 	// if the border exists, draw it
 	if (this.borderWidth > 0) {
+		ctx.save();
 		ctx.beginPath();
 		ctx.moveTo(topLeft.x + this.borderRadius, topLeft.y);
 		ctx.lineTo(topRight.x - this.borderRadius, topRight.y);
@@ -42,42 +43,92 @@ ChartNode.prototype.draw = function(chart) {
 		ctx.strokeColor = this.borderColor;
 		ctx.closePath();
 		ctx.stroke();
-		// Save context before clip
-		ctx.save();
 		ctx.clip();
+		
+		ctx.fillStyle = this.backgroundColor;
+		ctx.fillRect(left, top, width, height);
+	} else {
+		// No border. Draw the rect normally. 
+		ctx.fillStyle = this.backgroundColor;
+		ctx.fillRect(top, left, width, height);
 	}
-	
-	// Draw background box
-	ctx.fillStyle = this.backgroundColor;
-	ctx.fillRect(topLeft.x, topLeft.y, width, height);
 
 	// Draw title
 	ctx.font = this.titleFontSize + 'px ' + this.titleFontFamily;
 	ctx.textAlign = 'center';
 	ctx.textBaseline = 'top';
 	ctx.fillStyle = this.titleFontColor;
-	ctx.fillText(this.title, center, top + this.padding);
 	
-	this.lastDrawTextBottom = top + this.padding + this.titleFontSize;
+	// Transform string to fit within the bounding box
+	var titleArray = [];
+	var titleSplit = this.title.split(' ');
+	var currentTitleString = '';
+	for (var t in titleSplit) {
+		if (titleArray.length > 0) {
+			currentTitleString = titleArray[titleArray.length - 1];
+			if (ctx.measureText(titleSplit[t]).width + ctx.measureText(currentTitleString).width + (this.padding * 2) < width) {
+				titleArray[titleArray.length - 1] = currentTitleString + ' ' + titleSplit[t];
+			} else {
+				titleArray.push(titleSplit[t]);
+			}
+		} else {
+			titleArray.push(titleSplit[t]);
+		}
+	}
+	
+	var lastDrawTextBottom = top;
+	
+	// Draw Title
+	for (var titlePart in titleArray) {
+		if (titlePart === '0') {
+			ctx.fillText(titleArray[titlePart], center, top + this.padding);
+			lastDrawTextBottom += this.padding + this.titleFontSize;
+		} else {
+			ctx.fillText(titleArray[titlePart], center, lastDrawTextBottom + 3);
+			lastDrawTextBottom += this.titleFontSize + 3;
+		}
+	}
 	
 	// Draw content
 	ctx.font = this.contentFontSize + 'px ' + this.contentFontFamily;
 	ctx.textAlign = 'center';
 	ctx.textBaseline = 'top';
 	ctx.fillStyle = this.contentFontColor;
-	var splitContent = this.content.split('\n');
-	for (var idx in splitContent) {
-		if (idx === '0') {
-			ctx.fillText(splitContent[idx], center, this.lastDrawTextBottom + 10);
-			this.lastDrawTextBottom = this.lastDrawTextBottom + 10 + this.contentFontSize;
+	
+	// Transform string to fit within the bounding box
+	var contentArray = [];
+	var contentSplit = this.content.split(' ');
+	var currentContentString = '';
+	for (var c in contentSplit) {
+		if (contentArray.length > 0) {
+			currentContentString = contentArray[contentArray.length - 1];
+			if (ctx.measureText(contentSplit[c]).width + ctx.measureText(currentContentString).width + (this.padding * 2) < width) {
+				contentArray[contentArray.length - 1] = currentContentString + ' ' + contentSplit[c];
+			} else {
+				contentArray.push(contentSplit[c]);
+			}
 		} else {
-			ctx.fillText(splitContent[idx], center, this.lastDrawTextBottom + 5);
-			this.lastDrawTextBottom = this.lastDrawTextBottom + 5 + this.contentFontSize;
+			contentArray.push(contentSplit[c]);
 		}
 	}
+	
+	for (var contentPart in contentArray) {
+		if (contentPart === '0') {
+			ctx.fillText(contentArray[contentPart], center, lastDrawTextBottom + 5);
+			lastDrawTextBottom += this.contentFontSize + 5;
+		} else {
+			ctx.fillText(contentArray[contentPart], center, lastDrawTextBottom + 3);
+			lastDrawTextBottom += this.contentFontSize + 3;
+		}
+	}
+	
 	ctx.restore();
 };
 
 ChartNode.prototype.update = function() {
 	//console.log(this.title);
+};
+
+ChartNode.prototype.roundedRect = function(x, y, width, height, borderRadius, borderColor, backgroundColor, ctx) {
+	
 };
