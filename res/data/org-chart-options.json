@@ -1,19 +1,19 @@
 {
-	"backgroundColor": "(255,255,255)",
+	"backgroundColor": "#fff",
 	"fixedWidth": 1200,
 	"fixedHeight": 800,
 	"nodeTitleFontFamily": "Arial",
 	"nodeTitleFontSize": 24,
-	"nodeTitleFontColor": "(255, 255, 255)",
+	"nodeTitleFontColor": "#000",
 	"nodeContentFontFamily": "Arial",
 	"nodeContentFontSize": 18,
-	"nodeContentFontColor": "(255, 255, 255)",
-	"nodeBackgrounColor": "(30, 30, 30)",
+	"nodeContentFontColor": "#000",
+	"nodeBackgroundColor": "#efefef",
 	"nodeWidth": 3,
 	"nodeHeight": 2,
 	"nodeBorderWidth": 1,
-	"nodeBorderColor": "(50, 50, 50)",
+	"nodeBorderColor": "#acacac",
 	"nodeBorderRadius": 3,
 	"lineWidth": 1,
-	"lineColor": "(0, 0, 0)"
+	"lineColor": "#000"
 }

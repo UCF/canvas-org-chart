@@ -44,8 +44,6 @@ function CanvasOrgChart(id, data, options) {
 	
 	setInterval(function() { self.play(); }, 1000 / 24);
 	
-	console.log(this);
-	
 	return this;
 }
 
@@ -82,19 +80,19 @@ CanvasOrgChart.prototype.handleNoCanvas = function() {
 CanvasOrgChart.prototype.play = function() {
 	if (this.isPlaying) {
 		
-		this.ctx.fillStyle = (0,0,0);
+		this.ctx.fillStyle = this.backgroundColor;
 		this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
 		
 		for (var n in this.nodes) {
 			var node = this.nodes[n];
 			node.update();
-			node.draw();
+			node.draw(this);
 		}
 		
 		for (var l in this.lines) {
 			var line = this.lines[l];
 			line.update();
-			line.draw();
+			line.draw(this);
 		}	
 	}
 };

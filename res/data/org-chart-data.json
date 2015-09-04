@@ -2,41 +2,26 @@
 	"nodes": [
 		{
 			"title": "Grant Heston",
-			"content": "Grant Heston",
+			"content": "Vice President Communications and Marketing",
 			"href": "https://www.google.com",
 			"coords": {
-				"x": 50,
+				"x": 7,
 				"y": 1
 			},
-			"image": null,
-			"parent": null,
-			"background-image": null,
-			"background-color": null,
-			"foreground-color": null,
-			"border-color": null,
-			"border-width": null,
-			"border-radius": null,
-			"padding": null,
-			"box-shadow": null
-		},
-		{
-			"title": "Wendy Satubbi",
-			"content": "Wendy Sarubbi",
-			"href": "https://www.google.com",
-			"coords": {
-				"x": 5,
-				"y": 5
+			"dimensions": {
+				"width": 3,
+				"height": 1
 			},
 			"image": null,
 			"parent": null,
-			"background-image": null,
-			"background-color": null,
-			"foreground-color": null,
-			"border-color": null,
-			"border-width": null,
-			"border-radius": null,
-			"padding": null,
-			"box-shadow": null
+			"backgroundImage": null,
+			"backgroundColor": "#efefef",
+			"foregroundColor": "#000",
+			"borderColor": "#acacac",
+			"borderWidth": 1,
+			"borderRadius": 3,
+			"padding": 10,
+			"boxShadow": null
 		}
 	],
 	"lines": [
