@@ -1,5 +1,6 @@
 function ChartNode(chart, options) {
 	this.chart = chart;
+	this.boundingBox = {};
 	if (options !== 'undefined') {
 		for (var option in options) {
 			this[option] = options[option];
@@ -9,10 +10,10 @@ function ChartNode(chart, options) {
 	return this;
 }
 
-ChartNode.prototype.draw = function(chart) {
-	var ctx = chart.ctx;
-	var gux = chart.gridUnit.x;
-	var guy = chart.gridUnit.y;
+ChartNode.prototype.draw = function() {
+	var ctx = this.chart.ctx;
+	var gux = this.chart.gridUnit.x;
+	var guy = this.chart.gridUnit.y;
 	// Get dimensions
 	var width = this.dimensions.width * gux;
 	
@@ -89,6 +90,13 @@ ChartNode.prototype.draw = function(chart) {
 	
 	height += contentArray.length * this.contentFontSize + (titleArray.length * 5) + 5;
 	height += this.padding * 2;
+	
+	this.boundingBox = {
+		x: left,
+		y: top,
+		width: width,
+		height: height	
+	};
 	
 	var topLeft = { x: left, y: top };
 	var topRight = { x: left + width, y: top };
@@ -176,9 +184,24 @@ ChartNode.prototype.draw = function(chart) {
 };
 
 ChartNode.prototype.update = function() {
-	//console.log(this.title);
+	var mouse = this.chart.mouse;
+
+	if (mouse.click) {
+		console.log("Mouse was clicked!");
+		this.chart.mouse.click = false;
+	}
+	
+	if (this.intersects(mouse.x, mouse.y)) {
+		console.log("House is hovering...");
+	}
 };
 
-ChartNode.prototype.roundedRect = function(x, y, width, height, borderRadius, borderColor, backgroundColor, ctx) {
-	
+ChartNode.prototype.intersects = function(x, y) {
+	var boundingBox = this.boundingBox;
+	return (
+		x >= boundingBox.x &&
+		y >= boundingBox.y &&
+		x <= boundingBox.x + boundingBox.width &&
+		y <= boundingBox.y + boundingBox.height	
+	);
 };

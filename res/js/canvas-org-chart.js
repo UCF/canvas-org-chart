@@ -28,11 +28,11 @@ function CanvasOrgChart(id, data, options) {
 	
 	if (data !== 'undefinied') {
 		for (var node in data.nodes) {
-			this.nodes.push(new ChartNode(this.chart, data.nodes[node]));
+			this.nodes.push(new ChartNode(this, data.nodes[node]));
 		}
 		 
 		for (var line in data.lines) {
-			this.lines.push(new ChartLine(this.chart, data.lines[line]));
+			this.lines.push(new ChartLine(this, data.lines[line]));
 		}
 	} else {
 		// do something else...
@@ -43,6 +43,21 @@ function CanvasOrgChart(id, data, options) {
 	var self = this;
 	
 	setInterval(function() { self.play(); }, 1000 / 24);
+	
+	this.mouse = {
+		x: 0,
+		y: 0,
+		click: false
+	};
+	
+	this.canvas.onmousemove = function(e) {
+		self.mouse.x = e.pageX - self.rect.left;
+		self.mouse.y = e.pageY - self.rect.top;
+	};
+	
+	this.canvas.onclick = function(e) {
+		self.mouse.click = true;
+	};
 	
 	return this;
 }
@@ -100,6 +115,7 @@ CanvasOrgChart.prototype.play = function() {
 CanvasOrgChart.prototype.setConstants = function() {
 	this.canvas.width = this.parent.offsetWidth;
 	this.canvas.height = this.canvas.width / 4 * 3;
+	this.rect = this.canvas.getBoundingClientRect();
 	this.gridUnit = {
 		x: Math.floor(this.canvas.width / 15),
 		y: Math.floor(this.canvas.height / 15)
