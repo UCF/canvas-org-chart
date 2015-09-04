@@ -102,6 +102,6 @@ CanvasOrgChart.prototype.setConstants = function() {
 	this.canvas.height = this.canvas.width / 4 * 3;
 	this.gridUnit = {
 		x: Math.floor(this.canvas.width / 15),
-		y: Math.floor(this.canvas.height / 8)
+		y: Math.floor(this.canvas.height / 15)
 	};
 };
