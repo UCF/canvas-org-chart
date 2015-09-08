@@ -6,8 +6,12 @@ function CanvasOrgChart(id, data, options) {
 	this.canvas = document.createElement('canvas');
 	this.ctx = this.canvas.getContext('2d');
 	
+	this.overlay = document.createElement('div');
+	this.overlay.style.position = 'absolute';
+	
 	this.parent = document.getElementById(id);
 	this.parent.appendChild(this.canvas);
+	this.parent.appendChild(this.overlay);
 	
 	this.options = this.defaultOptions();
 	
@@ -41,6 +45,10 @@ function CanvasOrgChart(id, data, options) {
 	this.setConstants();
 	
 	var self = this;
+	
+	for (var n in self.nodes) {
+		self.nodes[n].render();
+	}
 	
 	setInterval(function() { self.play(); }, 1000 / 24);
 	
@@ -99,8 +107,8 @@ CanvasOrgChart.prototype.play = function() {
 		
 		for (var n in this.nodes) {
 			var node = this.nodes[n];
-			node.update();
-			node.draw();
+			//node.update();
+			//node.draw();
 		}
 		
 		for (var l in this.lines) {
@@ -116,6 +124,11 @@ CanvasOrgChart.prototype.play = function() {
 CanvasOrgChart.prototype.setConstants = function() {
 	this.canvas.width = this.parent.offsetWidth;
 	this.canvas.height = this.canvas.width / 4 * 3;
+	var canvasRect = this.canvas.getBoundingClientRect();
+	this.overlay.style.top = canvasRect.top + 'px';
+	this.overlay.style.left = canvasRect.left + 'px';
+	this.overlay.style.width = canvasRect.width + 'px';
+	this.overlay.style.height = canvasRect.height + 'px';
 	this.rect = this.canvas.getBoundingClientRect();
 	this.gridUnit = {
 		x: Math.floor(this.canvas.width / 15),
