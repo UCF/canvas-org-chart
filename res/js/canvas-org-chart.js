@@ -94,21 +94,22 @@ CanvasOrgChart.prototype.handleNoCanvas = function() {
 
 CanvasOrgChart.prototype.play = function() {
 	if (this.isPlaying) {
-		
 		this.ctx.fillStyle = this.backgroundColor;
 		this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
 		
 		for (var n in this.nodes) {
 			var node = this.nodes[n];
 			node.update();
-			node.draw(this);
+			node.draw();
 		}
 		
 		for (var l in this.lines) {
 			var line = this.lines[l];
 			line.update();
-			line.draw(this);
+			line.draw();
 		}
+		
+		this.mouse.click = false;
 	}
 };
 
