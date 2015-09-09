@@ -28,14 +28,13 @@ function ChartNode(chart, options) {
 		backgroundBox.style.top = top + 'px';
 		backgroundBox.style.left = left + 'px';
 
+		var image = document.createElement('img');
 		if (self.image.src) {
-			var image = document.createElement('img');
-			image.style.width = width - (self.padding * 2) + 'px';
-			image.style.height = image.style.width + 'px';
-			image.style.borderRadius = width - (self.padding * 2) / 2 + 'px';
 			image.src = self.image.src;
-			backgroundBox.appendChild(image);
+		} else {
+			image.src = 'res/img/person.png';
 		}
+		backgroundBox.appendChild(image);
 
 		var title = document.createElement('h2');
 		title.innerText = self.title;
