@@ -42,7 +42,6 @@ function CanvasOrgChart(id, data, options) {
 			x: Math.floor(set_width / 15),
 			y: Math.floor(set_height / 15)
 		};
-		console.log(self.gridUnit);
 	};
 
 	self.__init__ = function() {
