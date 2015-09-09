@@ -22,7 +22,7 @@ function ChartNode(chart, options) {
 			left = center - width / 2;
 
 		var backgroundBox = document.createElement('div');
-		backgroundBox.className = 'chartNode';
+		backgroundBox.className = 'chart-node';
 		backgroundBox.style.padding = self.padding + 'px';
 		backgroundBox.style.width = self.dimensions.width * gux + 'px';
 		backgroundBox.style.top = top + 'px';

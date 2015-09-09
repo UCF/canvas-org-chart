@@ -11,7 +11,7 @@ var main = function ($) {
 		})
 	).then(function() {
 		if (chartData && options) {
-			chart = CanvasOrgChart('orgChart', chartData, options);
+			chart = CanvasOrgChart('org-chart', chartData, options);
 		}
 	});
 };
