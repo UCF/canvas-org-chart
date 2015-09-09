@@ -1,14 +1,17 @@
-var main = function($) {
+var main = function ($) {
+	var chart,
+		chartData,
+		options;
 	$.when(
 		$.getJSON('res/data/org-chart-data.json', function(data) {
-			chartData = data;	
+			chartData = data;
 		}),
 		$.getJSON('res/data/org-chart-options.json', function(data) {
 			options = data;
 		})
 	).then(function() {
 		if (chartData && options) {
-			var chart = new CanvasOrgChart('chart', chartData, options);
+			chart = CanvasOrgChart('orgChart', chartData, options);
 		}
 	});
 };

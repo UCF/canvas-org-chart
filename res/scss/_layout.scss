@@ -1,13 +1,18 @@
-.chartNode {
-	position: absolute;
-	
-	* {
-		padding: 0;
-		margin: 0;
-		text-decoration: none;
-		
-		&:hover {
-			text-decoration: none;	
+
+#orgChart {
+	background: #fff;
+
+	.chartNode {
+		position: absolute;
+
+		* {
+			padding: 0;
+			margin: 0;
+			text-decoration: none;
+
+			&:hover {
+				text-decoration: none;
+			}
 		}
 	}
 }

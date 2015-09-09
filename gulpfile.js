@@ -1,4 +1,5 @@
 var gulp = require('gulp'),
+	browserSync = require('browser-sync').create(),
 	sass = require('gulp-sass'),
 	minifyCss = require('gulp-minify-css'),
 	notify = require('gulp-notify'),
@@ -10,13 +11,13 @@ var gulp = require('gulp'),
 	jshintStylist = require('jshint-stylish'),
 	scsslint = require('gulp-scss-lint'),
 	vinylPaths = require('vinyl-paths');
-	
+
 var config = {
 	sassPath: './res/scss',
 	cssPath: './res/css',
 	jsPath: './res/js',
 	fontPath: './res/fonts',
-	bowerDir: './res/bower_components'	
+	bowerDir: './res/bower_components'
 };
 
 gulp.task('bower', function() {
@@ -28,13 +29,26 @@ gulp.task('bower', function() {
 		});
 });
 
+// Static Server + watching scss/html files
+gulp.task('serve', ['css'], function() {
+
+    browserSync.init({
+        server: "./"
+    });
+
+	gulp.watch(config.sassPath + '/*.scss', ['css']);
+	gulp.watch(config.jsPath + '/*.js', ['js']);
+    gulp.watch("/*.html").on('change', browserSync.reload);
+});
+
 gulp.task('css', function() {
 	return gulp.src(config.sassPath + '/*.scss')
 		.pipe(scsslint())
 		.pipe(sass().on('error', sass.logError))
 		.pipe(minifyCss({compatibility: 'ie8'}))
 		.pipe(rename('style.min.css'))
-		.pipe(gulp.dest(config.cssPath));
+		.pipe(gulp.dest(config.cssPath))
+        .pipe(browserSync.stream());
 });
 
 gulp.task('js', function() {
@@ -51,11 +65,12 @@ gulp.task('js', function() {
 				config.jsPath + '/chart-line.js',
 				config.jsPath + '/script.js'
 			]
-			
+
 			gulp.src(minified)
 				.pipe(concat('script.min.js'))
 				.pipe(uglify())
-				.pipe(gulp.dest(config.jsPath));
+				.pipe(gulp.dest(config.jsPath))
+        		.pipe(browserSync.stream());
 		});
 });
 
@@ -64,4 +79,4 @@ gulp.task('watch', function() {
 	gulp.watch(config.jsPath + '/*.js', ['js']);
 });
 
-gulp.task('default', ['bower', 'css', 'js']);
+gulp.task('default', ['bower', 'serve', 'css', 'js']);
