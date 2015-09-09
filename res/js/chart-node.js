@@ -24,12 +24,13 @@ function ChartNode(chart, options) {
 
 		var group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
 		group.setAttribute('transform', 'translate(' + left + ', ' + top +')');
+		group.setAttribute("class", 'chartNode');
 		// group.setAttribute('y', top + 'px');
 		// group.setAttribute('x', left + 'px');
 
 
 		var backgroundBox = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
-		backgroundBox.setAttribute("class", 'chartNode');
+		backgroundBox.setAttribute("class", 'content-box');
 		backgroundBox.style.padding = self.padding + 'px';
 		backgroundBox.style.width = self.dimensions.width * gux + 'px';
 		backgroundBox.style.height = guy *1.25 + 'px';

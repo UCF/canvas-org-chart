@@ -17,16 +17,35 @@
 	}
 
 	.chartNode {
-		background-color: #efefef;
-		border: solid 2px #cfcfcf;
-		border-radius: 5px;
-		margin: 0 auto;
-		position: absolute;
+		image {
+			clip-path: circle(60px at center);
+		}
 
+		.title {
+			fill: #444;
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 22px;
+			top: 10px;
+		}
 
+		.content {
+			fill: #666;
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 14px;
+			line-height: normal;
+			margin-top: 8px;
+		}
+
+		.content-box {
+			background-color: #efefef;
+			border: solid 2px #cfcfcf;
+			border-radius: 5px;
+			margin: 0 auto;
+			position: absolute;
 			fill: #efefef;
-      stroke: #cfcfcf;
-      stroke-width: 2px;
+			stroke: #cfcfcf;
+			stroke-width: 2px;
+		}
 
 		&:hover {
 			background-color: #cfcfcf;
@@ -45,25 +64,6 @@
 			line-height: normal;
 			margin-top: 8px;
 		}
-	}
-
-	image {
-		clip-path: circle(60px at center);
-	}
-
-	.title {
-		fill: #444;
-		font-family: Arial, Helvetica, sans-serif;
-		font-size: 22px;
-		top: 10px;
-	}
-
-	.content {
-		fill: #666;
-		font-family: Arial, Helvetica, sans-serif;
-		font-size: 14px;
-		line-height: normal;
-		margin-top: 8px;
 	}
 
 }
