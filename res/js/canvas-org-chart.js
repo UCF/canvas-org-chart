@@ -27,7 +27,7 @@ function CanvasOrgChart(id, data, options) {
 	self.handleNoCanvas = function() {
 		// ToDo: Come up with error handling for if canvas is not supported.
 		return {
-			message: "Canvas is not supported by this browser."
+			message: "SVG is not supported by this browser."
 		};
 	};
 
@@ -46,15 +46,9 @@ function CanvasOrgChart(id, data, options) {
 		var set_width = self.parent.offsetWidth;
 		var set_height = set_width / 4 * 3;
 
-		self.container.setAttribute('width', set_width);
-		self.container.setAttribute('height', set_height);
+		self.svg.setAttribute('width', set_width);
+		self.svg.setAttribute('height', set_height);
 
-		// var canvasRect = self.canvas.getBoundingClientRect();
-		// self.overlay.style.top = canvasRect.top + 'px';
-		// self.overlay.style.left = canvasRect.left + 'px';
-		// self.overlay.style.width = canvasRect.width + 'px';
-		// self.overlay.style.height = canvasRect.height + 'px';
-		//self.rect = self.canvas.getBoundingClientRect();
 		self.gridUnit = {
 			x: Math.floor(set_width / 15),
 			y: Math.floor(set_height / 15)
@@ -67,20 +61,22 @@ function CanvasOrgChart(id, data, options) {
 			throw "Parent element must be defined must be defined";
 		}
 
-		//self.canvas = document.createElement('canvas');
-		self.container = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-		//self.ctx = //self.canvas.getContext('2d');
+		if (!(document.implementation.hasFeature("http://www.w3.org/TR/SVG11/feature#Shape", "1.0"))) {
+			handleNoCanvas();
+			return;
+		}
+
+		self.svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
 
 		self.overlay = document.createElement('div');
 		self.overlay.style.position = 'absolute';
-		self.container.style.position = 'absolute';
-		self.container.style.left = '0';
-		self.container.style.top = '0';
-
+		self.svg.style.position = 'absolute';
+		self.svg.style.left = '0';
+		self.svg.style.top = '0';
 
 		self.parent = document.getElementById(id);
 		self.parent.style.position = 'relative';
-		self.parent.appendChild(self.container);
+		self.parent.appendChild(self.svg);
 		self.parent.appendChild(self.overlay);
 
 		self.options = self.defaultOptions();
@@ -105,10 +101,6 @@ function CanvasOrgChart(id, data, options) {
 			}
 		} else {
 			// do something else...
-		}
-
-		if (self.ctx === 'undefinied') {
-			self.handleNoCanvas();
 		}
 
 		self.setConstants();
