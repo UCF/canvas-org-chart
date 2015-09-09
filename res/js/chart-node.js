@@ -29,15 +29,17 @@ function ChartNode(chart, options) {
 		// create background box
 		var backgroundBox = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
 		backgroundBox.setAttribute("class", 'content-box');
-		backgroundBox.style.padding = self.padding + 'px';
+		backgroundBox.setAttribute("rx", '5px');
+		backgroundBox.setAttribute("ry", '5px');
 		backgroundBox.style.width = width + 'px';
-		backgroundBox.style.height = guy *1.25 + 'px';
+		backgroundBox.style.height = guy + self.padding + 'px';
 		group.appendChild(backgroundBox);
 
 		// create title text
 		var title = document.createElementNS('http://www.w3.org/2000/svg', 'text');
 		title.setAttribute("class", 'title');
 		title.setAttribute('y', 25 + 'px');
+		title.setAttribute('x', self.padding + 'px');
 		title.innerHTML = self.title;
 		group.appendChild(title);
 
@@ -45,6 +47,7 @@ function ChartNode(chart, options) {
 		var content = document.createElementNS('http://www.w3.org/2000/svg', 'text');
 		content.setAttribute("class", 'content');
 		content.setAttribute('y', 45 + 'px');
+		content.setAttribute('x', self.padding + 'px');
 		content.innerHTML = self.content;
 		group.appendChild(content);
 
@@ -60,19 +63,19 @@ function ChartNode(chart, options) {
 			// clip image with circle
 			var image_clip_circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
 			image_clip_circle.setAttribute('r', image_width/2);
-			image_clip_circle.setAttribute('cx', image_width/2 + 5);
-			image_clip_circle.setAttribute('cy', image_width/2 + 5);
+			image_clip_circle.setAttribute('cx', image_width/2 + self.padding);
+			image_clip_circle.setAttribute('cy', image_width/2 + self.padding);
 			image_clip_path.appendChild(image_clip_circle);
 
 			// create image element
 			var image = document.createElementNS('http://www.w3.org/2000/svg', 'image');
-			image.setAttribute("width", image_width + '');
-			image.setAttribute("height", image_width + '');
 			image.setAttributeNS('http://www.w3.org/1999/xlink', 'href', self.image.src);
+			image.setAttribute("width", image_width);
+			image.setAttribute("height", image_width);
 			image.setAttribute('clip-path', 'url(#circleClip)');
 			image.setAttribute('y', '5px');
 			image.setAttribute('x', '5px');
-			backgroundBox.style.height = guy + image_width + 15 + 'px';
+			backgroundBox.style.height = guy + image_width + self.padding + 'px';
 			group.appendChild(image);
 
 			// resize containers
@@ -81,17 +84,15 @@ function ChartNode(chart, options) {
 		}
 
 		// add the anchor wrapper if a url is specified
+		if (self.href) {
+		 	var wrapper = document.createElementNS('http://www.w3.org/2000/svg', 'a');
+			wrapper.setAttributeNS('http://www.w3.org/1999/xlink', 'href', self.href);
+	  	wrapper.appendChild(group);
+		 	this.svg.appendChild(wrapper);
+		} else {
+			this.svg.appendChild(group);
+		}
 
-		// if (self.href) {
-		// 	var wrapper = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
-		// 	wrapper.setAttribute("xlink:href", self.href);
-		// 	wrapper.appendChild(backgroundBox);
-		// 	this.overlay.appendChild(wrapper);
-		// } else {
-
-		//}
-
-		this.svg.appendChild(group);
 	};
 
 	return self;
