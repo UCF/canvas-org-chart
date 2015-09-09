@@ -9,20 +9,13 @@ function ChartLine(chart, options) {
 	}
 
 	self.render = function() {
-		//var ctx = self.chart.ctx;
 		var gux = self.chart.gridUnit.x;
 		var guy = self.chart.gridUnit.y;
 
-		//ctx.save();
-		//ctx.beginPath();
-
-		//ctx.strokeStyle = self.chart.lineColor;
-
 		var newLine = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-			newLine.setAttribute('class', 'org-line');
+		newLine.setAttribute('class', 'org-line');
 
 		if (self.style === 'dotted') {
-			//ctx.setLineDash([3, 9]);
 			newLine.classList.add('dotted');
 		}
 
@@ -32,11 +25,8 @@ function ChartLine(chart, options) {
 			newLine.setAttribute('y1', waypoint.from.y * guy);
 			newLine.setAttribute('x2', waypoint.to.x * gux);
 			newLine.setAttribute('y2', waypoint.to.y * guy);
-			chart.container.appendChild(newLine);
+			chart.svg.appendChild(newLine);
 		}
-
-		//ctx.closePath();
-		//ctx.restore();
 	};
 
 	return self;
