@@ -18,28 +18,7 @@
 			},
 			"parent": null,
 			"backgroundImage": null,
-			"backgroundColor": "#efefef",
-			"foregroundColor": "#000",
-			"hoverBackgroundColor": "#cacaca",
-			"hoverForegroundColor": "#000",
-			"borderColor": "#acacac",
-			"borderWidth": 1,
-			"borderRadius": 5,
-			"padding":5,
-			"boxShadow": {
-				"shadowBlur": 20,
-				"shadowColor": "#acacac",
-				"shadowOffset": {
-					"x": 10,
-					"y": 10
-				}
-			},
-			"titleFontFamily": "Arial",
-			"titleFontSize": 24,
-			"titleFontColor": "#000",
-			"contentFontFamily": "Arial",
-			"contentFontSize": 12,
-			"contentFontColor": "#000"
+			"padding":5
 		},
 		{
 			"title": "Laura Stylianou",
@@ -59,28 +38,7 @@
 			},
 			"parent": null,
 			"backgroundImage": null,
-			"backgroundColor": "#efefef",
-			"foregroundColor": "#000",
-			"hoverBackgroundColor": "#cacaca",
-			"hoverForegroundColor": "#000",
-			"borderColor": "#acacac",
-			"borderWidth": 1,
-			"borderRadius": 5,
-			"padding":5,
-			"boxShadow": {
-				"shadowBlur": 20,
-				"shadowColor": "#acacac",
-				"shadowOffset": {
-					"x": 10,
-					"y": 10
-				}
-			},
-			"titleFontFamily": "Arial",
-			"titleFontSize": 24,
-			"titleFontColor": "#000",
-			"contentFontFamily": "Arial",
-			"contentFontSize": 12,
-			"contentFontColor": "#000"
+			"padding":5
 		},
 		{
 			"title": "Patrick Burt",
@@ -100,28 +58,7 @@
 			},
 			"parent": null,
 			"backgroundImage": null,
-			"backgroundColor": "#efefef",
-			"foregroundColor": "#000",
-			"hoverBackgroundColor": "#cacaca",
-			"hoverForegroundColor": "#000",
-			"borderColor": "#acacac",
-			"borderWidth": 1,
-			"borderRadius": 5,
-			"padding":5,
-			"boxShadow": {
-				"shadowBlur": 20,
-				"shadowColor": "#acacac",
-				"shadowOffset": {
-					"x": 10,
-					"y": 10
-				}
-			},
-			"titleFontFamily": "Arial",
-			"titleFontSize": 24,
-			"titleFontColor": "#000",
-			"contentFontFamily": "Arial",
-			"contentFontSize": 12,
-			"contentFontColor": "#000"
+			"padding":5
 		},
 		{
 			"title": "Chad Binette",
@@ -141,28 +78,7 @@
 			},
 			"parent": null,
 			"backgroundImage": null,
-			"backgroundColor": "#efefef",
-			"foregroundColor": "#000",
-			"hoverBackgroundColor": "#cacaca",
-			"hoverForegroundColor": "#000",
-			"borderColor": "#acacac",
-			"borderWidth": 1,
-			"borderRadius": 5,
-			"padding":5,
-			"boxShadow": {
-				"shadowBlur": 20,
-				"shadowColor": "#acacac",
-				"shadowOffset": {
-					"x": 10,
-					"y": 10
-				}
-			},
-			"titleFontFamily": "Arial",
-			"titleFontSize": 24,
-			"titleFontColor": "#000",
-			"contentFontFamily": "Arial",
-			"contentFontSize": 12,
-			"contentFontColor": "#000"
+			"padding":5
 		},
 		{
 			"title": "Polly Anderson",
@@ -182,28 +98,7 @@
 			},
 			"parent": null,
 			"backgroundImage": null,
-			"backgroundColor": "#efefef",
-			"foregroundColor": "#000",
-			"hoverBackgroundColor": "#cacaca",
-			"hoverForegroundColor": "#000",
-			"borderColor": "#acacac",
-			"borderWidth": 1,
-			"borderRadius": 5,
-			"padding":5,
-			"boxShadow": {
-				"shadowBlur": 20,
-				"shadowColor": "#acacac",
-				"shadowOffset": {
-					"x": 10,
-					"y": 10
-				}
-			},
-			"titleFontFamily": "Arial",
-			"titleFontSize": 20,
-			"titleFontColor": "#000",
-			"contentFontFamily": "Arial",
-			"contentFontSize": 12,
-			"contentFontColor": "#000"
+			"padding":5
 		},
 		{
 			"title": "Christine Dellert",
@@ -223,28 +118,7 @@
 			},
 			"parent": null,
 			"backgroundImage": null,
-			"backgroundColor": "#efefef",
-			"foregroundColor": "#000",
-			"hoverBackgroundColor": "#cacaca",
-			"hoverForegroundColor": "#000",
-			"borderColor": "#acacac",
-			"borderWidth": 1,
-			"borderRadius": 5,
-			"padding":5,
-			"boxShadow": {
-				"shadowBlur": 20,
-				"shadowColor": "#acacac",
-				"shadowOffset": {
-					"x": 10,
-					"y": 10
-				}
-			},
-			"titleFontFamily": "Arial",
-			"titleFontSize": 20,
-			"titleFontColor": "#000",
-			"contentFontFamily": "Arial",
-			"contentFontSize": 12,
-			"contentFontColor": "#000"
+			"padding":5
 		},
 		{
 			"title": "Tammy Forrester",
@@ -264,28 +138,7 @@
 			},
 			"parent": null,
 			"backgroundImage": null,
-			"backgroundColor": "#efefef",
-			"foregroundColor": "#000",
-			"hoverBackgroundColor": "#cacaca",
-			"hoverForegroundColor": "#000",
-			"borderColor": "#acacac",
-			"borderWidth": 1,
-			"borderRadius": 5,
-			"padding":5,
-			"boxShadow": {
-				"shadowBlur": 20,
-				"shadowColor": "#acacac",
-				"shadowOffset": {
-					"x": 10,
-					"y": 10
-				}
-			},
-			"titleFontFamily": "Arial",
-			"titleFontSize": 18,
-			"titleFontColor": "#000",
-			"contentFontFamily": "Arial",
-			"contentFontSize": 12,
-			"contentFontColor": "#000"
+			"padding":5
 		},
 		{
 			"title": "Tom Hope",
@@ -305,13 +158,6 @@
 			},
 			"parent": null,
 			"backgroundImage": null,
-			"backgroundColor": "#efefef",
-			"foregroundColor": "#000",
-			"hoverBackgroundColor": "#cacaca",
-			"hoverForegroundColor": "#000",
-			"borderColor": "#acacac",
-			"borderWidth": 1,
-			"borderRadius": 5,
 			"padding":5,
 			"boxShadow": {
 				"shadowBlur": 20,
@@ -320,13 +166,7 @@
 					"x": 10,
 					"y": 10
 				}
-			},
-			"titleFontFamily": "Arial",
-			"titleFontSize": 20,
-			"titleFontColor": "#000",
-			"contentFontFamily": "Arial",
-			"contentFontSize": 12,
-			"contentFontColor": "#000"
+			}
 		},
 		{
 			"title": "TBD",
@@ -346,28 +186,7 @@
 			},
 			"parent": null,
 			"backgroundImage": null,
-			"backgroundColor": "#efefef",
-			"foregroundColor": "#000",
-			"hoverBackgroundColor": "#cacaca",
-			"hoverForegroundColor": "#000",
-			"borderColor": "#acacac",
-			"borderWidth": 1,
-			"borderRadius": 5,
-			"padding":5,
-			"boxShadow": {
-				"shadowBlur": 20,
-				"shadowColor": "#acacac",
-				"shadowOffset": {
-					"x": 10,
-					"y": 10
-				}
-			},
-			"titleFontFamily": "Arial",
-			"titleFontSize": 20,
-			"titleFontColor": "#000",
-			"contentFontFamily": "Arial",
-			"contentFontSize": 12,
-			"contentFontColor": "#000"
+			"padding":5
 		},
 		{
 			"title": "Wendy Sarubbi",
@@ -387,28 +206,7 @@
 			},
 			"parent": null,
 			"backgroundImage": null,
-			"backgroundColor": "#efefef",
-			"foregroundColor": "#000",
-			"hoverBackgroundColor": "#cacaca",
-			"hoverForegroundColor": "#000",
-			"borderColor": "#acacac",
-			"borderWidth": 1,
-			"borderRadius": 5,
-			"padding":5,
-			"boxShadow": {
-				"shadowBlur": 20,
-				"shadowColor": "#acacac",
-				"shadowOffset": {
-					"x": 10,
-					"y": 10
-				}
-			},
-			"titleFontFamily": "Arial",
-			"titleFontSize": 20,
-			"titleFontColor": "#000",
-			"contentFontFamily": "Arial",
-			"contentFontSize": 12,
-			"contentFontColor": "#000"
+			"padding":5
 		}
 	],
 	"lines": [
