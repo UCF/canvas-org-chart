@@ -1,0 +1,10 @@
+#orgChart {
+  .org-line {
+    stroke: rgb(0,0,0);
+    stroke-width: 1;
+
+    &.dotted {
+      stroke-dasharray: 4,2;
+    }
+  }
+}
