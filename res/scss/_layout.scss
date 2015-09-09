@@ -17,8 +17,9 @@
 	}
 
 	.chartNode {
-		image {
-			clip-path: circle(60px at center);
+		&:hover .content-box {
+			background-color: #cfcfcf;
+			fill: #cfcfcf;
 		}
 
 		.title {
@@ -45,10 +46,6 @@
 			fill: #efefef;
 			stroke: #cfcfcf;
 			stroke-width: 2px;
-		}
-
-		&:hover {
-			background-color: #cfcfcf;
 		}
 
 		h2 {

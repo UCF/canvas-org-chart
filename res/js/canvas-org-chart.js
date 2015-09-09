@@ -55,9 +55,6 @@ function CanvasOrgChart(id, data, options) {
 		}
 
 		self.svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-
-		self.overlay = self.svg; //document.createElement('div');
-		self.overlay.style.position = 'absolute';
 		self.svg.style.position = 'absolute';
 		self.svg.style.left = '0';
 		self.svg.style.top = '0';
@@ -65,7 +62,6 @@ function CanvasOrgChart(id, data, options) {
 		self.parent = document.getElementById(id);
 		self.parent.style.position = 'relative';
 		self.parent.appendChild(self.svg);
-		self.parent.appendChild(self.overlay);
 
 		self.options = self.defaultOptions();
 
