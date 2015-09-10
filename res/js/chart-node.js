@@ -86,7 +86,7 @@ function ChartNode(chart, options) {
 			this.svg.appendChild(group);
 		}
 
-		// create content text
+		// create content text using paragraph tags and the foreignObject element
 		// var content = document.createElementNS('http://www.w3.org/2000/svg', 'foreignObject');
 		// content.setAttribute('x', image_width + 'px');
 		// content.setAttribute('y', image_width/2 + 10 + 'px');
@@ -102,7 +102,7 @@ function ChartNode(chart, options) {
 		// backgroundBox.style.height = guy * 1 + self.padding + content_height + 'px';
 
 
-		// create content text
+		// create content text using svg text elements
 		var content = document.createElementNS('http://www.w3.org/2000/svg', 'text');
 		content.setAttribute("class", 'content');
 		content.setAttribute('x', image_width + 'px');
