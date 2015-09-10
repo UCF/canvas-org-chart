@@ -32,8 +32,8 @@ function CanvasOrgChart(id, data, options) {
 
 	self.setConstants = function() {
 
-		var set_width = self.parent.offsetWidth;
-		var set_height = set_width / 4 * 3;
+		var set_width = self.parent.offsetWidth,
+			set_height = set_width / 4 * 3;
 
 		self.svg.setAttribute('width', set_width);
 		self.svg.setAttribute('height', set_height);
@@ -44,7 +44,7 @@ function CanvasOrgChart(id, data, options) {
 		};
 	};
 
-	self.__init__ = function() {
+	self.init = function() {
 		if (id === 'undefined') {
 			throw "Parent element must be defined must be defined";
 		}
@@ -94,5 +94,5 @@ function CanvasOrgChart(id, data, options) {
 		return self;
 	};
 
-	return self.__init__();
+	return self.init();
 }

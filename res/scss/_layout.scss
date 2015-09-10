@@ -1,13 +1,13 @@
 
-#orgChart {
-	background: #fff;
+#org-chart {
+    background: #fff;
 
-	> div {
+    > div {
 		position: absolute;
 
 		* {
-			padding: 0;
 			margin: 0;
+			padding: 0;
 			text-decoration: none;
 
 			&:hover {
@@ -16,31 +16,31 @@
 		}
 	}
 
-	.chartNode {
+	.chart-node {
 		&:hover .content-box {
 			background-color: #cfcfcf;
 			fill: #cfcfcf;
 		}
 
 		.title {
-			fill: #444;
+			fill: #fc0;
 			font-family: Arial, Helvetica, sans-serif;
 			font-size: 22px;
-			top: 10px;
-		}
-
-		.content {
-			fill: #666;
-			font-family: Arial, Helvetica, sans-serif;
-			font-size: 14px;
-			line-height: normal;
 			margin-top: 8px;
 		}
 
-		.content-box {
-			background-color: #efefef;
-			border: solid 2px #cfcfcf;
-			border-radius: 5px;
+		.content {
+			fill: #fff;
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 14px;
+			line-height: normal;
+			margin: 0;
+			padding: 0;
+			background: green;
+		}
+
+		.chart-node {
+			background-color: #000;
 			margin: 0 auto;
 			position: absolute;
 			fill: #efefef;
@@ -48,10 +48,38 @@
 			stroke-width: 2px;
 		}
 
-		h2 {
-			color: #444;
-			font-family: Arial, Helvetica, sans-serif;
-			font-size: 22px;
+			&:hover {
+				background-color: #333;
+			}
+
+			h2,
+			p {
+				padding-left: 65px;
+			}
+
+			h2 {
+				color: #fc0;
+				font-family: Arial, Helvetica, sans-serif;
+				font-size: 22px;
+				margin-top: 8px;
+			}
+
+			img {
+				border-radius: 50%;
+				left: -10px;
+				margin-right: 10px;
+				position: absolute;
+				top: -15px;
+				width: 65px;
+			}
+
+			p {
+				color: #fff;
+				font-family: Arial, Helvetica, sans-serif;
+				font-size: 14px;
+				line-height: normal;
+				margin: 5px 0 8px;
+			}
 		}
 
 		p {
@@ -63,4 +91,3 @@
 		}
 	}
 
-}

@@ -9,12 +9,11 @@
 				"y": 1
 			},
 			"dimensions": {
-				"width": 2.25,
-				"height": 3
+				"width": 4,
+				"height": 2
 			},
 			"image": {
-				"src": "res/img/heston.jpg",
-				"style": "circle"
+				"src": "res/img/heston.jpg"
 			},
 			"parent": null,
 			"backgroundImage": null,
@@ -25,16 +24,15 @@
 			"content": "Sr. Admin Assistant 37010",
 			"href": "https://www.google.com",
 			"coords": {
-				"x": 9,
-				"y": 5
+				"x": 10,
+				"y": 4
 			},
 			"dimensions": {
-				"width": 2.25,
+				"width": 4,
 				"height": 3
 			},
 			"image": {
-				"src": null,
-				"style": "circle"
+				"src": null
 			},
 			"parent": null,
 			"backgroundImage": null,
@@ -45,16 +43,15 @@
 			"content": "Assistant VP, Marketing 38207",
 			"href": "https://www.google.com",
 			"coords": {
-				"x": 5,
+				"x": 4,
 				"y": 7
 			},
 			"dimensions": {
-				"width": 2.25,
+				"width": 4,
 				"height": 3
 			},
 			"image": {
-				"src": null,
-				"style": "circle"
+				"src": null
 			},
 			"parent": null,
 			"backgroundImage": null,
@@ -65,16 +62,15 @@
 			"content": "Assistant VP, News & Info 33474",
 			"href": "https://www.google.com",
 			"coords": {
-				"x": 9,
+				"x": 10,
 				"y": 7
 			},
 			"dimensions": {
-				"width": 2.25,
+				"width": 4,
 				"height": 3
 			},
 			"image": {
-				"src": null,
-				"style": "circle"
+				"src": null
 			},
 			"parent": null,
 			"backgroundImage": null,
@@ -85,16 +81,15 @@
 			"content": "Executive Directory, WUCFTV 38471",
 			"href": "https://www.google.com",
 			"coords": {
-				"x": 5,
+				"x": 4,
 				"y": 9
 			},
 			"dimensions": {
-				"width": 2.25,
+				"width": 4,
 				"height": 3
 			},
 			"image": {
-				"src": null,
-				"style": "circle"
+				"src": null
 			},
 			"parent": null,
 			"backgroundImage": null,
@@ -105,16 +100,15 @@
 			"content": "Sr. Director of Internal Comm 39762",
 			"href": "https://www.google.com",
 			"coords": {
-				"x": 9,
+				"x": 10,
 				"y": 9
 			},
 			"dimensions": {
-				"width": 2.25,
+				"width": 4,
 				"height": 3
 			},
 			"image": {
-				"src": null,
-				"style": "circle"
+				"src": null
 			},
 			"parent": null,
 			"backgroundImage": null,
@@ -125,16 +119,15 @@
 			"content": "Assistant Director, Operations 36457",
 			"href": "https://www.google.com",
 			"coords": {
-				"x": 5,
+				"x": 4,
 				"y": 11
 			},
 			"dimensions": {
-				"width": 2.25,
+				"width": 4,
 				"height": 3
 			},
 			"image": {
-				"src": null,
-				"style": "circle"
+				"src": null
 			},
 			"parent": null,
 			"backgroundImage": null,
@@ -145,16 +138,15 @@
 			"content": "Assistant VP, Strategic Initiatives (Visiting) 39823",
 			"href": "https://www.google.com",
 			"coords": {
-				"x": 9,
+				"x": 10,
 				"y": 11
 			},
 			"dimensions": {
-				"width": 2.25,
+				"width": 4,
 				"height": 3
 			},
 			"image": {
-				"src": null,
-				"style": "circle"
+				"src": null
 			},
 			"parent": null,
 			"backgroundImage": null,
@@ -173,16 +165,15 @@
 			"content": "Exec Dir, Strategic Int and Comm 37604",
 			"href": "https://www.google.com",
 			"coords": {
-				"x": 5,
+				"x": 4,
 				"y": 13
 			},
 			"dimensions": {
-				"width": 2.25,
+				"width": 4,
 				"height": 3
 			},
 			"image": {
-				"src": null,
-				"style": "circle"
+				"src": null
 			},
 			"parent": null,
 			"backgroundImage": null,
@@ -197,12 +188,11 @@
 				"y": 4
 			},
 			"dimensions": {
-				"width": 2.25,
+				"width": 4,
 				"height": 3
 			},
 			"image": {
-				"src": null,
-				"style": "circle"
+				"src": null
 			},
 			"parent": null,
 			"backgroundImage": null,
@@ -216,7 +206,7 @@
 				{
 					"from": {
 						"x": 7,
-						"y": 4.5
+						"y": 2
 					},
 					"to": {
 						"x": 7,
@@ -232,7 +222,7 @@
 				{
 					"from": {
 						"x": 6,
-						"y": 2.5
+						"y": 2
 					},
 					"to": {
 						"x": 4,
@@ -248,11 +238,11 @@
 				{
 					"from": {
 						"x": 7,
-						"y": 5.75
+						"y": 4.5
 					},
 					"to": {
 						"x": 8,
-						"y": 5.75
+						"y": 4.5
 					}
 				}
 			],
