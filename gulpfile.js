@@ -1,15 +1,16 @@
 var gulp = require('gulp'),
-	browserSync = require('browser-sync').create(),
-	sass = require('gulp-sass'),
-	minifyCss = require('gulp-minify-css'),
-	notify = require('gulp-notify'),
 	bower = require('gulp-bower'),
+	browserSync = require('browser-sync').create(),
 	concat = require('gulp-concat'),
-	uglify = require('gulp-uglify'),
-	rename = require('gulp-rename'),
+	iconify = require('gulp-iconify'),
 	jshint = require('gulp-jshint'),
 	jshintStylist = require('jshint-stylish'),
+	minifyCss = require('gulp-minify-css'),
+	notify = require('gulp-notify'),
+	rename = require('gulp-rename'),
+	sass = require('gulp-sass'),
 	scsslint = require('gulp-scss-lint'),
+	uglify = require('gulp-uglify'),
 	vinylPaths = require('vinyl-paths');
 
 var config = {
@@ -74,9 +75,17 @@ gulp.task('js', function() {
 		});
 });
 
+gulp.task('svg', function() {
+    iconify({
+        src: './res/svg/*.svg',
+        pngOutput: './res/svg',
+		cssOutput: false
+    });
+});
+
 gulp.task('watch', function() {
 	gulp.watch(config.sassPath + '/*.scss', ['css']);
 	gulp.watch(config.jsPath + '/*.js', ['js']);
 });
 
-gulp.task('default', ['bower', 'serve', 'css', 'js']);
+gulp.task('default', ['bower', 'serve', 'css', 'js', 'svg']);
