@@ -18,8 +18,8 @@
 
 	.chart-node {
 		&:hover .content-box {
-			background-color: #cfcfcf;
-			fill: #cfcfcf;
+			background-color: #333;
+			fill: #333;
 		}
 
 		.title {
@@ -36,7 +36,6 @@
 			line-height: normal;
 			margin: 0;
 			padding: 0;
-			background: green;
 		}
 
 		.chart-node {

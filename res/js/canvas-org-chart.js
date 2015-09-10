@@ -21,12 +21,13 @@ function CanvasOrgChart(id, data, options) {
 	};
 
 	self.render = function() {
-		for (var n in self.nodes) {
-			self.nodes[n].render();
-		}
 
 		for (var l in self.lines) {
 			self.lines[l].render();
+		}
+
+		for (var n in self.nodes) {
+			self.nodes[n].render();
 		}
 	};
 
@@ -90,6 +91,10 @@ function CanvasOrgChart(id, data, options) {
 		self.setConstants();
 
 		self.render();
+
+		// var output = document.createElement("textarea");
+		// output.innerHTML = self.parent.innerHTML;
+		// $('body').html(output);
 
 		return self;
 	};

@@ -76,14 +76,6 @@ function ChartNode(chart, options) {
 		title.innerHTML = self.title;
 		group.appendChild(title);
 
-		// create content text
-		var content = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-		content.setAttribute("class", 'content');
-		content.setAttribute('x', image_width + 'px');
-		content.setAttribute('y', image_width/2 + 20 + 'px');
-		content.innerHTML = self.content;
-		group.appendChild(content);
-
 		// add link if available
 		if (self.href) {
 		 	var wrapper = document.createElementNS('http://www.w3.org/2000/svg', 'a');
@@ -94,7 +86,31 @@ function ChartNode(chart, options) {
 			this.svg.appendChild(group);
 		}
 
+		// create content text
+		// var content = document.createElementNS('http://www.w3.org/2000/svg', 'foreignObject');
+		// content.setAttribute('x', image_width + 'px');
+		// content.setAttribute('y', image_width/2 + 10 + 'px');
+		// content.setAttribute('width', width + 'px');
+		// var content_text = document.createElement('p');
+		// content_text.setAttribute("class", 'content');
+		// content_text.style.width = width - image_width + 'px';
+		// content_text.textContent = self.content;
+		// content.appendChild(content_text);
+		// group.appendChild(content);
+		// content_height = content_text.getBoundingClientRect().height;
+		// background_height = backgroundBox.getBoundingClientRect().height;
+		// backgroundBox.style.height = guy * 1 + self.padding + content_height + 'px';
 
+
+		// create content text
+		var content = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+		content.setAttribute("class", 'content');
+		content.setAttribute('x', image_width + 'px');
+		content.setAttribute('y', image_width/2 + 20 + 'px');
+		content.innerHTML = self.content;
+		group.appendChild(content);
+
+		// create content text
 		var lines = 1;
 		var content_line = content;
 		var content_text_width = content_line.getBoundingClientRect().width;
@@ -124,7 +140,6 @@ function ChartNode(chart, options) {
 				i++;
 			}
 		}
-
 		content_height = content.getBoundingClientRect().height * (lines-1);
 		background_height = backgroundBox.getBoundingClientRect().height;
 
