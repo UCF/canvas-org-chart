@@ -75,6 +75,8 @@ function ChartNode(chart, options) {
 			image.setAttribute('clip-path', 'url(#circleClip)');
 			image.setAttribute('y', '5px');
 			image.setAttribute('x', '5px');
+
+			// change height of background box to include image
 			backgroundBox.style.height = guy + image_width + self.padding + 'px';
 			group.appendChild(image);
 
