@@ -25,6 +25,7 @@ function ChartNode(chart, options) {
 		var group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
 		group.setAttribute('transform', 'translate(' + left + ', ' + top +')');
 		group.setAttribute("class", 'chart-node draggable');
+		group.setAttribute("data-title", self.title)
 
 		console.log(group);
 

@@ -21,13 +21,23 @@ function CanvasOrgChart(id, data, options) {
 	};
 
 	self.render = function() {
+		self.renderNodes();
+		self.renderLines();
+	};
 
+	self.renderNodes = function() {
 		for (var n in self.nodes) {
 			self.nodes[n].render();
 		}
+	};
+
+	self.renderLines = function() {
 
 		var connections = []
 		var line_data = {};
+
+		$('.org-line').remove();
+		self.lines = [];
 
 		for (var i in self.nodes) {
 			start_node = self.nodes[i];
@@ -117,11 +127,17 @@ function CanvasOrgChart(id, data, options) {
 		    x = 0, y = 0;
 		self.container.style.background = "#ccc";
 
-		interact('.draggable')
+
+		self.setConstants();
+
+		interact('.chart-node')
 		  .draggable({
 		    snap: {
 		      targets: [
-		        interact.createSnapGrid({ x: 15, y: 15 })
+		        interact.createSnapGrid({
+		        	x: self.gridUnit.x,
+		        	y: self.gridUnit.y
+		        })
 		      ],
 		      range: Infinity,
 		      relativePoints: [ { x: 0, y: 0 } ]
@@ -149,6 +165,32 @@ function CanvasOrgChart(id, data, options) {
 		    event.target.style.webkitTransform =
 		    event.target.style.transform =
 		        'translate(' + x + 'px, ' + y + 'px)';
+
+		    event.target.setAttribute('dragged-x', x);
+		    event.target.setAttribute('dragged-y', y);
+
+		    for (i in self.nodes) {
+		    	if (self.nodes[i].title == event.target.getAttribute('data-title')) {
+		    		self.nodes[i].coords.x = event.target.getAttribute('dragged-x')/self.gridUnit.x;
+		    		self.nodes[i].coords.y = event.target.getAttribute('dragged-y')/self.gridUnit.y;
+		    	}
+		    }
+				self.renderLines();
+
+
+		  }).on('dragend', function (event) {
+
+		  	// we know where it's dropped based on the grid unit
+		    console.log("x", parseInt(event.target.getAttribute('dragged-x'))/self.gridUnit.x);
+		    console.log("y", parseInt(event.target.getAttribute('dragged-y'))/self.gridUnit.y);
+
+		    for (i in self.nodes) {
+		    	if (self.nodes[i].title == event.target.getAttribute('data-title')) {
+		    		self.nodes[i].coords.x = event.target.getAttribute('dragged-x')/self.gridUnit.x;
+		    		self.nodes[i].coords.y = event.target.getAttribute('dragged-y')/self.gridUnit.y;
+		    	}
+		    }
+				self.renderLines();
 		  });
 
 		// Merge default options with options passed in.
@@ -168,7 +210,6 @@ function CanvasOrgChart(id, data, options) {
 			}
 		}
 
-		self.setConstants();
 		self.render();
 
 		return self;
