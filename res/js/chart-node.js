@@ -1,7 +1,7 @@
 function ChartNode(chart, options) {
 	var self = this;
 	self.chart = chart;
-	self.svg = self.chart.svg;
+	self.container = self.chart.container;
 	if (options !== 'undefined') {
 		for (var option in options) {
 			self[option] = options[option];
@@ -24,7 +24,10 @@ function ChartNode(chart, options) {
 		// Group node items together
 		var group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
 		group.setAttribute('transform', 'translate(' + left + ', ' + top +')');
-		group.setAttribute("class", 'chart-node');
+		group.setAttribute("class", 'chart-node draggable');
+
+		console.log(group);
+
 
 		// create background box
 		var backgroundBox = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
@@ -77,13 +80,13 @@ function ChartNode(chart, options) {
 		group.appendChild(title);
 
 		// add link if available
-		if (self.href) {
+		if (self.href && 1 == 0) {
 		 	var wrapper = document.createElementNS('http://www.w3.org/2000/svg', 'a');
 			wrapper.setAttributeNS('http://www.w3.org/1999/xlink', 'href', self.href);
 	  	wrapper.appendChild(group);
-		 	this.svg.appendChild(wrapper);
+		 	this.container.appendChild(wrapper);
 		} else {
-			this.svg.appendChild(group);
+			this.container.appendChild(group);
 		}
 
 		// create content text using paragraph tags and the foreignObject element
@@ -143,7 +146,8 @@ function ChartNode(chart, options) {
 		content_height = content.getBoundingClientRect().height * (lines-1);
 		background_height = backgroundBox.getBoundingClientRect().height;
 
-		backgroundBox.style.height = guy * 1.25 + self.padding + content_height + 'px';
+		backgroundBox.style.height = 75 + content_height + 'px';
+		backgroundBox.style.width = 250 + 'px';
 
 	};
 

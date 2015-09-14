@@ -34,7 +34,7 @@
 			"image": {
 				"src": null
 			},
-			"parent": null,
+			"parent": "Grant Heston",
 			"backgroundImage": null,
 			"padding":5
 		},
@@ -51,150 +51,9 @@
 				"height": 3
 			},
 			"image": {
-				"src": null
+				"src": "res/img/patrick.jpg"
 			},
-			"parent": null,
-			"backgroundImage": null,
-			"padding":5
-		},
-		{
-			"title": "Chad Binette",
-			"content": "Assistant VP, News & Info 33474",
-			"href": "https://www.google.com",
-			"coords": {
-				"x": 10,
-				"y": 7
-			},
-			"dimensions": {
-				"width": 4,
-				"height": 3
-			},
-			"image": {
-				"src": null
-			},
-			"parent": null,
-			"backgroundImage": null,
-			"padding":5
-		},
-		{
-			"title": "Polly Anderson",
-			"content": "Executive Directory, WUCFTV 38471",
-			"href": "https://www.google.com",
-			"coords": {
-				"x": 4,
-				"y": 9
-			},
-			"dimensions": {
-				"width": 4,
-				"height": 3
-			},
-			"image": {
-				"src": null
-			},
-			"parent": null,
-			"backgroundImage": null,
-			"padding":5
-		},
-		{
-			"title": "Christine Dellert",
-			"content": "Sr. Director of Internal Comm 39762",
-			"href": "https://www.google.com",
-			"coords": {
-				"x": 10,
-				"y": 9
-			},
-			"dimensions": {
-				"width": 4,
-				"height": 3
-			},
-			"image": {
-				"src": null
-			},
-			"parent": null,
-			"backgroundImage": null,
-			"padding":5
-		},
-		{
-			"title": "Tammy Forrester",
-			"content": "Assistant Director, Operations 36457",
-			"href": "https://www.google.com",
-			"coords": {
-				"x": 4,
-				"y": 11
-			},
-			"dimensions": {
-				"width": 4,
-				"height": 3
-			},
-			"image": {
-				"src": null
-			},
-			"parent": null,
-			"backgroundImage": null,
-			"padding":5
-		},
-		{
-			"title": "Tom Hope",
-			"content": "Assistant VP, Strategic Initiatives (Visiting) 39823",
-			"href": "https://www.google.com",
-			"coords": {
-				"x": 10,
-				"y": 11
-			},
-			"dimensions": {
-				"width": 4,
-				"height": 3
-			},
-			"image": {
-				"src": null
-			},
-			"parent": null,
-			"backgroundImage": null,
-			"padding":5,
-			"boxShadow": {
-				"shadowBlur": 20,
-				"shadowColor": "#acacac",
-				"shadowOffset": {
-					"x": 10,
-					"y": 10
-				}
-			}
-		},
-		{
-			"title": "TBD",
-			"content": "Exec Dir, Strategic Int and Comm 37604",
-			"href": "https://www.google.com",
-			"coords": {
-				"x": 4,
-				"y": 13
-			},
-			"dimensions": {
-				"width": 4,
-				"height": 3
-			},
-			"image": {
-				"src": null
-			},
-			"parent": null,
-			"backgroundImage": null,
-			"padding":5
-		},
-		{
-			"title": "Wendy Sarubbi",
-			"content": "Assistant VP, COM 34044",
-			"href": "https://www.google.com",
-			"coords": {
-				"x": 3,
-				"y": 4
-			},
-			"dimensions": {
-				"width": 4,
-				"height": 3
-			},
-			"image": {
-				"src": null
-			},
-			"parent": null,
+			"parent": "Grant Heston",
 			"backgroundImage": null,
 			"padding":5
 		}

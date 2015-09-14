@@ -53,9 +53,9 @@ gulp.task('css', function() {
 
 gulp.task('js', function() {
 	return gulp.src([config.jsPath + '/*.js', '!' + config.jsPath + '/*.min.js'])
-		.pipe(jshint())
-		.pipe(jshint.reporter('jshint-stylish'))
-		.pipe(jshint.reporter('fail'))
+		//.pipe(jshint())
+		//.pipe(jshint.reporter('jshint-stylish'))
+		//.pipe(jshint.reporter('fail'))
 		.on('end', function() {
 			var minified = [
 				config.bowerDir + '/jquery/dist/jquery.js',

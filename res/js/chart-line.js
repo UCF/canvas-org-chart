@@ -25,7 +25,7 @@ function ChartLine(chart, options) {
 			newLine.setAttribute('y1', waypoint.from.y * guy);
 			newLine.setAttribute('x2', waypoint.to.x * gux);
 			newLine.setAttribute('y2', waypoint.to.y * guy);
-			chart.svg.appendChild(newLine);
+			chart.container.appendChild(newLine);
 		}
 	};
 
