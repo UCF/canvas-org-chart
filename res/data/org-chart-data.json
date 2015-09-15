@@ -20,12 +20,12 @@
 			"padding":5
 		},
 		{
-			"title": "Laura Stylianou",
-			"content": "Sr. Admin Assistant 37010",
+			"title": "Robert Smith",
+			"content": "Sr. Admin Assistant of Human Resources 37010",
 			"href": "https://www.google.com",
 			"coords": {
 				"x": 10,
-				"y": 4
+				"y": 7
 			},
 			"dimensions": {
 				"width": 4,
@@ -36,7 +36,11 @@
 			},
 			"parent": "Grant Heston",
 			"backgroundImage": null,
-			"padding":5
+			"padding":5,
+			"stroke": {
+				"style": "dotted",
+				"direction": "direct"
+			}
 		},
 		{
 			"title": "Patrick Burt",

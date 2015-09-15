@@ -30,10 +30,10 @@ function ChartNode(chart, options) {
 		// create background box
 		var backgroundBox = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
 		backgroundBox.setAttribute("class", 'content-box');
-		// backgroundBox.setAttribute("rx", '5px');
-		// backgroundBox.setAttribute("ry", '5px');
-		backgroundBox.style.width = width + 'px';
-		backgroundBox.style.height = 10 + 'px';
+		// backgroundBox.setAttribute("rx", '5');
+		// backgroundBox.setAttribute("ry", '5');
+		backgroundBox.style.width = width + '';
+		backgroundBox.style.height = 10 + '';
 		group.appendChild(backgroundBox);
 
 		// create circle to clip image
@@ -62,18 +62,22 @@ function ChartNode(chart, options) {
 		image.setAttribute("width", image_width);
 		image.setAttribute("height", image_width);
 		image.setAttribute('clip-path', 'url(#circleClip)');
-		image.setAttribute('y', '-15px');
-		image.setAttribute('x', '-15px');
+		image.setAttribute('y', '-15');
+		image.setAttribute('x', '-15');
 
 		// change height of background box to include image
-		// backgroundBox.style.height = guy + image_width + self.padding + 'px';
+		// backgroundBox.style.height = guy + image_width + self.padding + '';
 		group.appendChild(image);
 
 		// create title text
 		var title = document.createElementNS('http://www.w3.org/2000/svg', 'text');
 		title.setAttribute("class", 'title');
-		title.setAttribute('x', image_width + 'px');
-		title.setAttribute('y', image_width/2 + 'px');
+		title.setAttribute('x', image_width + '');
+		title.setAttribute('y', image_width/2 + '');
+		title.setAttribute('style', "	fill: #fc0;
+																	font-family: Arial, Helvetica, sans-serif;
+																	font-size: 22px;
+																	margin-top: 8px;");
 		title.innerHTML = self.title;
 		group.appendChild(title);
 
@@ -90,9 +94,13 @@ function ChartNode(chart, options) {
 		// create content text using svg text elements
 		var content = document.createElementNS('http://www.w3.org/2000/svg', 'text');
 		content.setAttribute("class", 'content');
-		content.setAttribute('x', image_width + 'px');
-		content.setAttribute('y', image_width/2 + 20 + 'px');
+		content.setAttribute('x', image_width + '');
+		content.setAttribute('y', image_width/2 + 20 + '');
 		content.innerHTML = self.content;
+		content.setAttribute('style', "	fill: #fff;
+																		font-family: Arial, Helvetica, sans-serif;
+																		font-size: 14px;
+																		line-height: normal;");
 		group.appendChild(content);
 
 		// create content text
@@ -116,8 +124,12 @@ function ChartNode(chart, options) {
 					lines++;
 					content_line = document.createElementNS('http://www.w3.org/2000/svg', 'text');
 					content_line.setAttribute("class", 'content');
-					content_line.setAttribute('x', image_width + 'px');
-					content_line.setAttribute('y', image_width/2 + 20 * lines + 'px');
+					content_line.setAttribute('x', image_width + '');
+					content_line.setAttribute('y', image_width/2 + 20 * lines + '');
+					content_line.setAttribute('style', "	fill: #fff;
+																								font-family: Arial, Helvetica, sans-serif;
+																								font-size: 14px;
+																								line-height: normal;");
 					content_line.innerHTML = "";
 					group.appendChild(content_line);
 				}
@@ -128,7 +140,7 @@ function ChartNode(chart, options) {
 		content_height = content.getBoundingClientRect().height * (lines-1);
 		background_height = backgroundBox.getBoundingClientRect().height;
 
-		backgroundBox.style.height = guy * 1.25 + self.padding + content_height + 'px';
+		backgroundBox.style.height = guy * 1.25 + self.padding + content_height + '';
 
 
 	};

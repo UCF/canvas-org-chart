@@ -15,6 +15,9 @@ function ChartLine(chart, options) {
 		var newLine = document.createElementNS('http://www.w3.org/2000/svg', 'line');
 		newLine.setAttribute('class', 'org-line');
 
+		// not in css for embedding purposes
+		newLine.setAttribute('stroke', '#000');
+
 		if (self.style === 'dotted') {
 			newLine.classList.add('dotted');
 		}
