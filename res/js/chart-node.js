@@ -27,9 +27,6 @@ function ChartNode(chart, options) {
 		group.setAttribute("class", 'chart-node draggable');
 		group.setAttribute("data-title", self.title)
 
-		console.log(group);
-
-
 		// create background box
 		var backgroundBox = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
 		backgroundBox.setAttribute("class", 'content-box');
@@ -90,22 +87,6 @@ function ChartNode(chart, options) {
 			this.container.appendChild(group);
 		}
 
-		// create content text using paragraph tags and the foreignObject element
-		// var content = document.createElementNS('http://www.w3.org/2000/svg', 'foreignObject');
-		// content.setAttribute('x', image_width + 'px');
-		// content.setAttribute('y', image_width/2 + 10 + 'px');
-		// content.setAttribute('width', width + 'px');
-		// var content_text = document.createElement('p');
-		// content_text.setAttribute("class", 'content');
-		// content_text.style.width = width - image_width + 'px';
-		// content_text.textContent = self.content;
-		// content.appendChild(content_text);
-		// group.appendChild(content);
-		// content_height = content_text.getBoundingClientRect().height;
-		// background_height = backgroundBox.getBoundingClientRect().height;
-		// backgroundBox.style.height = guy * 1 + self.padding + content_height + 'px';
-
-
 		// create content text using svg text elements
 		var content = document.createElementNS('http://www.w3.org/2000/svg', 'text');
 		content.setAttribute("class", 'content');
@@ -147,8 +128,8 @@ function ChartNode(chart, options) {
 		content_height = content.getBoundingClientRect().height * (lines-1);
 		background_height = backgroundBox.getBoundingClientRect().height;
 
-		backgroundBox.style.height = 75 + content_height + 'px';
-		backgroundBox.style.width = 250 + 'px';
+		backgroundBox.style.height = guy * 1.25 + self.padding + content_height + 'px';
+
 
 	};
 

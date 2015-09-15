@@ -21,8 +21,8 @@ function CanvasOrgChart(id, data, options) {
 	};
 
 	self.render = function() {
-		self.renderNodes();
 		self.renderLines();
+		self.renderNodes();
 	};
 
 	self.renderNodes = function() {
@@ -39,8 +39,9 @@ function CanvasOrgChart(id, data, options) {
 		$('.org-line').remove();
 		self.lines = [];
 
+		// collect node connections
 		for (var i in self.nodes) {
-			start_node = self.nodes[i];
+			var start_node = self.nodes[i];
 			end_node = false;
 			for (var f in self.nodes) {
 				if (self.nodes[f].parent !== "undefined" && self.nodes[f].parent == start_node.title) {
@@ -49,51 +50,90 @@ function CanvasOrgChart(id, data, options) {
 			}
 		}
 
-		console.log(connections);
-
+		// based on node connections, create needed lines
 		for (var i in connections) {
-
-			start_node = connections[i].to;
-			end_node = connections[i].from;
-
-			line_data = {};
-			line_data.waypoints = [];
-
-			// create line down
-			line_data.waypoints.push({
-				from: {
-					x: start_node.coords.x,
-					y: start_node.coords.y + 0.75
-				},
-				to: {
-					x: start_node.coords.x,
-					y: end_node.coords.y + 0.75
-				}
-			});
-			self.lines.push(new ChartLine(self, line_data));
-
-			// create horizontal line
-			line_data.waypoints = [];
-			line_data.waypoints.push({
-				from: {
-					x: start_node.coords.x,
-					y: end_node.coords.y + 0.75
-				},
-				to: {
-					x: end_node.coords.x,
-					y: end_node.coords.y + 0.75
-				}
-			});
-
-			self.lines.push(new ChartLine(self, line_data));
-
+			self.lines = self.lines.concat(self.createWaypoints(connections[i].to, connections[i].from));
 		}
 
-		console.log(self.lines);
-
+		// render calculated lines
 		for (var l in self.lines) {
 			self.lines[l].render();
 		}
+	};
+
+	self.createWaypoints = function(start_node, end_node) {
+
+		var line_data = {};
+		var lines = []
+		line_data.waypoints = [];
+
+		// create line down
+		// line_data.waypoints.push({
+		// 	from: {
+		// 		x: start_node.coords.x,
+		// 		y: start_node.coords.y + 0.75
+		// 	},
+		// 	to: {
+		// 		x: start_node.coords.x,
+		// 		y: end_node.coords.y + 0.75
+		// 	}
+		// });
+		// lines.push(new ChartLine(self, line_data));
+
+		// // create horizontal line
+		// line_data.waypoints = [];
+		// line_data.waypoints.push({
+		// 	from: {
+		// 		x: start_node.coords.x,
+		// 		y: end_node.coords.y + 0.75
+		// 	},
+		// 	to: {
+		// 		x: end_node.coords.x,
+		// 		y: end_node.coords.y + 0.75
+		// 	}
+		// });
+		// lines.push(new ChartLine(self, line_data));
+
+		line_data.waypoints.push({
+			from: {
+				x: start_node.coords.x,
+				y: start_node.coords.y + 0.75
+			},
+			to: {
+				x: start_node.coords.x,
+				y: end_node.coords.y - 0.75
+			}
+		});
+		lines.push(new ChartLine(self, line_data));
+
+		// create horizontal line
+		line_data.waypoints = [];
+		line_data.waypoints.push({
+			from: {
+				x: start_node.coords.x,
+				y: end_node.coords.y - 0.75
+			},
+			to: {
+				x: end_node.coords.x + 1,
+				y: end_node.coords.y - 0.75
+			}
+		});
+		lines.push(new ChartLine(self, line_data));
+
+		line_data.waypoints = [];
+		line_data.waypoints.push({
+			from: {
+				x: end_node.coords.x + 1,
+				y: end_node.coords.y - 0.75
+			},
+			to: {
+				x: end_node.coords.x + 1,
+				y: end_node.coords.y
+			}
+		});
+		lines.push(new ChartLine(self, line_data));
+
+		return lines;
 	};
 
 	self.setConstants = function() {
@@ -150,44 +190,49 @@ function CanvasOrgChart(id, data, options) {
 		    }
 		  })
 		  .on('dragstart', function (event) {
-		  	console.log(event);
-
+		  	var target = event.target;
 		    x = event.x0; // + event.dx;
 		    y = event.y0; //+ event.dy;
 
-		    event.target.style.webkitTransform =
-		    event.target.style.transform =
+		    target.style.webkitTransform =
+		    target.style.transform =
 		        'translate(' + x + 'px, ' + y + 'px)';
 		  }).on('dragmove', function (event) {
+		  	var target = event.target;
 		    x += event.dx;
 		    y += event.dy;
 
-		    event.target.style.webkitTransform =
-		    event.target.style.transform =
+		    target.style.webkitTransform =
+		    target.style.transform =
 		        'translate(' + x + 'px, ' + y + 'px)';
 
-		    event.target.setAttribute('dragged-x', x);
-		    event.target.setAttribute('dragged-y', y);
+		    target.setAttribute('dragged-x', x);
+		    target.setAttribute('dragged-y', y);
+
+		  	var new_x = parseInt(target.getAttribute('dragged-x'))/self.gridUnit.x;
+		  	var new_y = parseInt(target.getAttribute('dragged-y'))/self.gridUnit.y;
 
 		    for (i in self.nodes) {
-		    	if (self.nodes[i].title == event.target.getAttribute('data-title')) {
-		    		self.nodes[i].coords.x = event.target.getAttribute('dragged-x')/self.gridUnit.x;
-		    		self.nodes[i].coords.y = event.target.getAttribute('dragged-y')/self.gridUnit.y;
+		    	if (self.nodes[i].title == target.getAttribute('data-title')) {
+		    		self.nodes[i].coords.x = new_x;
+		    		self.nodes[i].coords.y = new_y;
 		    	}
 		    }
 				self.renderLines();
 
 
 		  }).on('dragend', function (event) {
+		  	var target = event.target;
+
+		  	var new_x = parseInt(target.getAttribute('dragged-x'))/self.gridUnit.x;
+		  	var new_y = parseInt(target.getAttribute('dragged-y'))/self.gridUnit.y;
 
 		  	// we know where it's dropped based on the grid unit
-		    console.log("x", parseInt(event.target.getAttribute('dragged-x'))/self.gridUnit.x);
-		    console.log("y", parseInt(event.target.getAttribute('dragged-y'))/self.gridUnit.y);
 
 		    for (i in self.nodes) {
-		    	if (self.nodes[i].title == event.target.getAttribute('data-title')) {
-		    		self.nodes[i].coords.x = event.target.getAttribute('dragged-x')/self.gridUnit.x;
-		    		self.nodes[i].coords.y = event.target.getAttribute('dragged-y')/self.gridUnit.y;
+		    	if (self.nodes[i].title == target.getAttribute('data-title')) {
+		    		self.nodes[i].coords.x = new_x;
+		    		self.nodes[i].coords.y = new_y;
 		    	}
 		    }
 				self.renderLines();
